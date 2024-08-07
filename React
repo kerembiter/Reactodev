@@ -1,0 +1,69 @@
+CSS Bölümü
+
+.header, .home, .footer {
+    color: inherit;
+    background-color: inherit;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    padding: 10px 0; 
+    text-align: center; 
+  }
+  
+  .header {
+    color: brown;
+    background-color: wheat;
+  }
+  
+  .home {
+    color: aqua;
+    background-color: black;
+  }
+  
+  .footer {
+    color: black;
+    background-color: white;
+  }
+
+
+Header Bölümü
+
+import React from 'react';
+import './App.css'
+
+export default function Header(props) {
+  return (
+    <div class="header">
+        {props.title} - {props.content}
+    </div>
+  );
+}
+
+
+Home Bölümü
+
+import React from 'react'
+import './App.css'
+
+export default function Home(props) {
+  return (
+    <div class="home">
+        {props.title}-{props.content}
+    </div>
+  )
+}
+
+
+Footer Bölümü
+
+import React from 'react'
+import './App.css'
+
+export default function Footer(props) {
+  return (
+    <div class="footer">
+        {props.title}-{props.content}
+    </div>
+  )
+}
+
