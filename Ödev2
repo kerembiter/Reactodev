@@ -1,0 +1,83 @@
+App.jsx Bölümü
+
+
+
+import React, { useState } from 'react';
+import './App.css';
+
+export default function App() {
+  
+  const [sebzeler, setSebzeler] = useState([
+    { ad: 'Domates', miktar: 0 },
+    { ad: 'Salatalık', miktar: 0 },
+    { ad: 'Biber', miktar: 0 },
+    { ad: 'Havuç', miktar: 0 },
+    { ad: 'Patates', miktar: 0 }
+  ]);
+
+
+  const miktarArtir = (index) => {
+    const yeniSebzeler = [...sebzeler];
+    yeniSebzeler[index].miktar += 1;
+    setSebzeler(yeniSebzeler);
+  };
+
+  return (
+    <div className="container">
+      <h1>Sebzeler ve Miktarları</h1>
+      <div className="sebze-listesi">
+        {sebzeler.map((sebze, index) => (
+          <div key={index} className="sebze-kutu">
+            <span>{sebze.ad}: {sebze.miktar}</span>
+            <button onClick={() => miktarArtir(index)}>Artır</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+App.css
+
+
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sebze-listesi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: center;
+}
+
+.sebze-kutu {
+  background-color: #08a608;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  width: 150px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
